@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +9,7 @@
 <style>
 body{
     margin:0;
-    background: linear-gradient(#0f2027, #203a43, #2c5364); /* 🌅 fondo oscuro */
+    background: linear-gradient(#0f2027, #203a43, #2c5364);
     overflow:hidden;
     font-family: Arial, sans-serif;
 }
@@ -39,7 +39,7 @@ body{
     margin:auto;
 }
 
-/* centro (CORREGIDO) */
+/* centro */
 .centro{
     width:24px;
     height:24px;
@@ -52,7 +52,7 @@ body{
     z-index:2;
 }
 
-/* pétalos (CORREGIDOS) */
+/* pétalos */
 .petalo{
     width:20px;
     height:45px;
@@ -64,7 +64,7 @@ body{
     transform-origin: bottom center;
 }
 
-/* distribución perfecta */
+/* distribución */
 .petalo:nth-child(1){ transform:translate(-50%, -100%) rotate(0deg); }
 .petalo:nth-child(2){ transform:translate(-50%, -100%) rotate(45deg); }
 .petalo:nth-child(3){ transform:translate(-50%, -100%) rotate(90deg); }
@@ -86,7 +86,7 @@ body{
     }
 }
 
-/* MENSAJE */
+/* MENSAJE (CORREGIDO PARA CELULAR) */
 .mensaje{
     position:absolute;
     top:8vh;
@@ -98,24 +98,10 @@ body{
     font-weight:bold;
     color:#ccc;
     text-shadow:0 0 10px rgba(0,0,0,0.5);
-    overflow:hidden;
-    white-space:nowrap;
-    border-right:3px solid #ccc;
-    width:0;
-    animation: escribir 4s steps(60) forwards, parpadeo 0.7s infinite;
-}
 
-/* escritura */
-@keyframes escribir{
-    from{ width:0 }
-    to{ width:100% }
-}
-
-/* cursor */
-@keyframes parpadeo{
-    0%{ border-color:transparent }
-    50%{ border-color:#ccc }
-    100%{ border-color:transparent }
+    /* 🔥 IMPORTANTE */
+    white-space: normal;
+    overflow: hidden;
 }
 
 /* brillo */
@@ -124,7 +110,7 @@ body{
     text-shadow:0 0 20px #ffea00;
 }
 
-/* 📱 ajuste móvil */
+/* 📱 ajustes móvil */
 @media (max-width:600px){
 
     .suelo{
@@ -148,6 +134,11 @@ body{
         width:18px;
         height:18px;
     }
+
+    .mensaje{
+        font-size:22px;
+        line-height:1.3;
+    }
 }
 </style>
 </head>
@@ -155,7 +146,8 @@ body{
 <body>
 
 <div class="mensaje">
-¿Por qué darte un ramo si tú mereces un <span>campo lleno de flores</span>? 🌼💛
+¿Por qué darte un ramo <br>
+si tú mereces un <span>campo lleno de flores</span>? 🌼💛
 </div>
 
 <div class="suelo"></div>
