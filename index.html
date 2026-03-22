@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti 💛</title>
+
+<style>
+body{
+    margin:0;
+    background: linear-gradient(#0f2027, #203a43, #2c5364); /* 🌅 fondo oscuro */
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* suelo */
+.suelo{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:30vh;
+    background:#6dbf4b;
+}
+
+/* flores */
+.flor{
+    position:absolute;
+    bottom:30vh;
+    transform-origin: bottom center;
+    animation: crecer 2s ease-out forwards;
+}
+
+/* tallo */
+.tallo{
+    width:5px;
+    height:100px;
+    background:#2e7d32;
+    margin:auto;
+}
+
+/* centro (CORREGIDO) */
+.centro{
+    width:24px;
+    height:24px;
+    background:#ffa500;
+    border-radius:50%;
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:2;
+}
+
+/* pétalos (CORREGIDOS) */
+.petalo{
+    width:20px;
+    height:45px;
+    background:#ffeb3b;
+    border-radius:50%;
+    position:absolute;
+    top:0;
+    left:50%;
+    transform-origin: bottom center;
+}
+
+/* distribución perfecta */
+.petalo:nth-child(1){ transform:translate(-50%, -100%) rotate(0deg); }
+.petalo:nth-child(2){ transform:translate(-50%, -100%) rotate(45deg); }
+.petalo:nth-child(3){ transform:translate(-50%, -100%) rotate(90deg); }
+.petalo:nth-child(4){ transform:translate(-50%, -100%) rotate(135deg); }
+.petalo:nth-child(5){ transform:translate(-50%, -100%) rotate(180deg); }
+.petalo:nth-child(6){ transform:translate(-50%, -100%) rotate(225deg); }
+.petalo:nth-child(7){ transform:translate(-50%, -100%) rotate(270deg); }
+.petalo:nth-child(8){ transform:translate(-50%, -100%) rotate(315deg); }
+
+/* animación */
+@keyframes crecer{
+    from{
+        transform:scale(0);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* MENSAJE */
+.mensaje{
+    position:absolute;
+    top:8vh;
+    width:90%;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    font-size:clamp(20px, 4vw, 38px);
+    font-weight:bold;
+    color:#ccc;
+    text-shadow:0 0 10px rgba(0,0,0,0.5);
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid #ccc;
+    width:0;
+    animation: escribir 4s steps(60) forwards, parpadeo 0.7s infinite;
+}
+
+/* escritura */
+@keyframes escribir{
+    from{ width:0 }
+    to{ width:100% }
+}
+
+/* cursor */
+@keyframes parpadeo{
+    0%{ border-color:transparent }
+    50%{ border-color:#ccc }
+    100%{ border-color:transparent }
+}
+
+/* brillo */
+.mensaje span{
+    color:#ffb300;
+    text-shadow:0 0 20px #ffea00;
+}
+
+/* 📱 ajuste móvil */
+@media (max-width:600px){
+
+    .suelo{
+        height:35vh;
+    }
+
+    .flor{
+        bottom:35vh;
+    }
+
+    .tallo{
+        height:80px;
+    }
+
+    .petalo{
+        width:16px;
+        height:35px;
+    }
+
+    .centro{
+        width:18px;
+        height:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="mensaje">
+¿Por qué darte un ramo si tú mereces un <span>campo lleno de flores</span>? 🌼💛
+</div>
+
+<div class="suelo"></div>
+
+<script>
+for(let i=0;i<25;i++){
+
+    let flor = document.createElement("div");
+    flor.className = "flor";
+
+    flor.style.left = Math.random()*100 + "%";
+    flor.style.animationDelay = (Math.random()*2) + "s";
+
+    flor.innerHTML = `
+        <div class="tallo"></div>
+        <div class="centro"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+        <div class="petalo"></div>
+    `;
+
+    document.body.appendChild(flor);
+}
+</script>
+
+</body>
+</html>
+```
